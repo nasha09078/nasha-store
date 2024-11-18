@@ -24,7 +24,7 @@ export default defineAppConfig({
     showBreadcrumbOnSingleProduct: true,
     showMoveToWishlist: false,
     saleBadge: 'percent', // 'percent', 'onSale' or 'hidden'
-    isNative: true ,
+    isNative: false ,
     hideBillingAddressForVirtualProducts: false,
     initStoreOnUserActionToReduceServerLoad: true,
     googlePlayLink:"https://play.google.com/store/apps/details?id=com.nasha.store",
