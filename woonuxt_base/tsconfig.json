@@ -1,0 +1,11 @@
+{
+  "extends": "../.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "types": ["@nuxt/image", "@nuxtjs/i18n"],
+    // "paths": {
+    //   // "@/*": ["../woonuxt_base/app"],  
+    
+    // },
+  }
+}
