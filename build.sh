@@ -14,6 +14,6 @@ if [ -f "${DEST_THEMES_FOLDER}/${ZIP_FILE}" ]; then
     rm "${DEST_THEMES_FOLDER}/${ZIP_FILE}"
 fi
 cd "${PHP_THEMES_FOLDER}"
-zip -r "${ZIP_FILE}" nasha-store
+zip -r "${ZIP_FILE}" * --exclude="nasha-store" 
 
 echo "Build successfully"
