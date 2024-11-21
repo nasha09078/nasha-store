@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     
     },
     pageTransition: { name: 'page', mode: 'out-in' },
-cdnURL: '/wp-content/themes/nasha-store/public/'
+cdnURL: 'https://nahastore.com/wp-content/themes/nasha-store/public/'
     
     // baseURL: 'http://192.168.39.185/wordpress',
 
