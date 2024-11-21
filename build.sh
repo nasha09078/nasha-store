@@ -1,8 +1,8 @@
 #!/bin/bash
 original_dir=$(pwd)
-!cp .envproduction .env
-!cat .env
-!npm i
+cp .envproduction .env
+cat .env
+npm i
 npm run generate
 SOURCE_DIR="${original_dir}/.output/public"
 DEST_THEMES_FOLDER="${original_dir}/etc"
