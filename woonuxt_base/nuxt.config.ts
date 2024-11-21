@@ -12,11 +12,17 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   app: {
+    
     head: {
       htmlAttrs: { lang: 'en' },
       link: [{ rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
+    
     },
     pageTransition: { name: 'page', mode: 'out-in' },
+cdnURL: '/wordpress/wp-content/themes/nasha-store/public/'
+    
+    // baseURL: 'http://192.168.39.185/wordpress',
+
   
   },
 
@@ -25,6 +31,13 @@ export default defineNuxtConfig({
   
   },
  
+  // buildDir: 'wp-content/themes/nasha-store/public/.nuxt',  
+  // generate: {
+  //   routes: 'wp-content/themes/nasha-store/public',  
+  // },
+
+ 
+
 
   css: [
     resolve('./public/css/global.less')
@@ -74,24 +87,6 @@ export default defineNuxtConfig({
     // '@stores': resolve('./app/stores'),  
     // '@utils': resolve('./app/utils'),  
   },
-  
-
-  // hooks: {
-  //   'pages:extend'(pages) {
-  //     // Remove all pages
-  //     pages.splice(0, pages.length);
-      
-  //     // Add the index page as a catch-all route
-  //     pages.push({
-  //       name: 'index',
-  //       path: '/:pathMatch(.*)*',
-  //       file: resolve('./app/pages/index.vue')
-  //     });
-
-  //   },
-        
-  // },
-  //
 
   // nitro: {
   //   routeRules: {

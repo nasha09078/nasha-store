@@ -1,17 +1,9 @@
-/**
- * App configuration
- * This file is used to configure the app settings.
- * Below are the default values.
- */
-import { Capacitor } from '@capacitor/core';
-// import { useI18n } from 'vue-i18n';
 
-// const { t } = useI18n();
 export default defineAppConfig({
-  siteName:  "t('messages.general.siteName')" ,
+  siteName:  "Nasha Store" ,
   shortDescription:  "t('messages.general.shortDescription')" ,
   description:  "t('messages.general.description')" ,
-  baseUrl: 'https://nashastore.netlify.app',
+  baseUrl: 'https://nahastore.com/',
   siteImage: 'http://192.168.99.176:3001/images/logo.png',
   storeSettings: {
     autoOpenCart: false,

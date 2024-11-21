@@ -1,0 +1,1 @@
+import{a as s}from"./CTsXp8GV.js";import{d as a,u as p,o as c,c as m,b as _,e}from"./D2h1M-6X.js";const f=a({__name:"EmptyCart",setup(u){const{emptyCart:t}=p();return(i,o)=>{const r=s;return c(),m("button",{class:"cursor-pointer top-6 right-6 md:right-8 absolute",title:"Empty Cart",onClick:o[0]||(o[0]=(...n)=>e(t)&&e(t)(...n))},[_(r)])}}});export{f as _};

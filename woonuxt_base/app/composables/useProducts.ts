@@ -1,3 +1,5 @@
+import { ProductsOrderByEnum } from "#build/gql/default";
+
 let allProducts = [] as Product[];
 
 export function useProducts() {
@@ -44,6 +46,62 @@ export function useProducts() {
     }
   };
 
-  return { products, allProducts, setProducts, updateProductList , isLoading};
+
+
+    // Define persistent state for categories, popular products, and new arrivals
+    const productCategories = useState<Product[]>('productCategories', () => []);
+    const popularProducts = useState<Product[]>('popularProducts', () => []);
+    const newArrivalProducts = useState<Product[]>('newArrivalProducts', () => []);
+  
+    // Loading states
+    const isLoadingCategories = useState<boolean>('isLoadingCategories', () => true);
+    const isLoadingProducts = useState<boolean>('isLoadingProducts', () => true);
+
+     /**
+   * Fetches product data only if not already loaded.
+   */
+  const fetchData = async () => {
+    if (
+      productCategories.value.length > 0 &&
+      popularProducts.value.length > 0 &&
+      newArrivalProducts.value.length > 0
+    ) {
+      isLoadingCategories.value = false;
+      isLoadingProducts.value = false;
+      // Data is already loaded, no need to fetch again
+      return;
+    }
+
+    try {
+      // Set loading states
+      isLoadingCategories.value = true;
+      isLoadingProducts.value = true;
+
+      // Fetch data concurrently
+      const [categoriesResult, popularProductsResult, newArrivalsResult] = await Promise.all([
+        useAsyncGql('getProductCategories', { first: 6 }),
+        useAsyncGql('getProducts', { first: 8, orderby: ProductsOrderByEnum.POPULARITY }),
+        useAsyncGql('getProducts', { first: 8, orderby: ProductsOrderByEnum.DATE }),
+      ]);
+
+      // Update state with fetched data
+      productCategories.value = categoriesResult.data.value?.productCategories?.nodes || [];
+      popularProducts.value = popularProductsResult.data.value.products?.nodes || [];
+      newArrivalProducts.value = newArrivalsResult.data.value.products?.nodes || [];
+    } catch (error) {
+      console.error('Failed to fetch data', error);
+    } finally {
+      // Reset loading states
+      isLoadingCategories.value = false;
+      isLoadingProducts.value = false;
+    }
+  };
+  return { products, allProducts, setProducts, updateProductList , isLoading, 
+    productCategories,
+    popularProducts,
+    newArrivalProducts,
+    fetchData,
+    isLoadingCategories,
+    isLoadingProducts,};
 }
 

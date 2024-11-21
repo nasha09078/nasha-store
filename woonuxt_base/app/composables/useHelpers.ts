@@ -2,6 +2,8 @@ import pkg from '../../../woonuxt_base/package.json';
 
 // A collection of helper functions.
 export function useHelpers() {
+
+  const isDataIndexFetched  = useState<boolean>('isDataIndexFetched', () => false);
   const route = useRoute();
   const runtimeConfig = useRuntimeConfig();
 
@@ -229,5 +231,6 @@ export function useHelpers() {
     stripHtml,
     debounce,
     logGQLError,
+    isDataIndexFetched
   };
 }
